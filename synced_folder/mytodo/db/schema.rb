@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220022047) do
+ActiveRecord::Schema.define(version: 20160220025733) do
 
   create_table "todos", force: :cascade do |t|
+    t.string   "title",      limit: 255
     t.string   "body",       limit: 255
     t.date     "date"
     t.datetime "created_at",             null: false
