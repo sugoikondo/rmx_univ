@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>New ToDo</h1>
+
+  <%= form_for(@todo, remote: true) do |f| %>
+    <label for="formGroupExampleInput">DeadLine</label>
+    <fieldset class="form-group">
+      <%= f.date_select :deadline , class: 'form-control' %>
+    </fieldset>
+    <label for="formGroupExampleInput">Task Name</label>
+    <fieldset class="form-group">
+      <%= f.text_field :task, class: 'form-control', placeholder: 'Enter your task here!' %>
+    </fieldset>
+    <%= f.submit 'New!', class: 'btn btn-success' %>
+  <% end %>
+
+<h1>Listing Todos</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Deadline</th>
+      <th>Done</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+    　　<%= render partial: 'tr', locals: { todo: todo } %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Todo', new_todo_path %>

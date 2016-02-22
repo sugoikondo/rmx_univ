@@ -1,0 +1,19 @@
+<h1>New todo</h1>
+
+<form id="new-todo" name="todo">
+  <div class="field">
+    <label for="task"> task:</label>
+    <input type="text" name="task" id="task" value="<%= task %>" >
+  </div>
+
+  <div class="field">
+    <input type="hidden" name="done" id="done" value="<%= done %>" >
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Create Todo" />
+  </div>
+
+</form>
+
+<a href="#/index">Back</a>

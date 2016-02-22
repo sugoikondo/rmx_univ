@@ -1,0 +1,5 @@
+<% if @status == "success" %>
+  $("tbody").prepend("<%= j(render("tr", todo: @todo)) %>");
+<% elsif @status == "fail" %>
+  alert("正しい値を入力してください");
+<% end %>
