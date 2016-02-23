@@ -1,6 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
-@import 'jquery-ui/core.css';
 @import 'jquery-ui/datepicker.css';
-@import 'jquery-ui/theme.css';
+
+.done_box {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-size: 24px;
+}
+
+tbody {
+  font-size: 20px;
+}

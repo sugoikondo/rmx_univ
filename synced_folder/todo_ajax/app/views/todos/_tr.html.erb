@@ -1,8 +1,6 @@
-<tr>
+<tr id="todo_<%= todo.id %>">
+  <td><span class="done_box"><%= best_in_place todo, :done, as: :checkbox, collection: {true: raw("&#x2611;"),false:  raw("&#x2610;")} %></span></td>
   <td><%= best_in_place todo, :task %></td>
   <td><%= best_in_place todo, :deadline, as: :date %></td>
-  <td><%= todo.done %></td>
-  <td><%= link_to 'Show', todo %></td>
-  <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-  <td><%= link_to 'Destroy', todo, method: :delete %></td>
+  <td><%= link_to 'Destroy', todo, method: :delete, remote: true, class: 'btn-delete' %></td>
 </tr>
