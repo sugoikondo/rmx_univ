@@ -5,8 +5,6 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = Todo.all
-    # @todos = Todo.where('done = ?', 1)
-    @todo = Todo.new
   end
 
   # GET /todos/1
@@ -27,17 +25,14 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-    @todo.done = false;
 
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @todo }
-        format.js { @status = 'success' }
       else
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
-        format.js { @status = 'failed' }
       end
     end
   end
@@ -60,11 +55,10 @@ class TodosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @todo.destroy
-    render json: { status: 'success', data: @todo }
-    # respond_to do |format|
-    #   format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    respond_to do |format|
+      format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
